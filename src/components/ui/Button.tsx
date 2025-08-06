@@ -1,31 +1,58 @@
-'use client';
+// src/components/ui/Button.tsx
+"use client";
 
 import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import type { HTMLMotionProps } from "framer-motion";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary";
-};
+const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ring-offset-background",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", ...props }, ref) => {
+type MotionButtonProps = HTMLMotionProps<"button">;
+
+export interface ButtonProps
+  extends MotionButtonProps,
+    VariantProps<typeof buttonVariants> {}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, ...props }, ref) => {
     return (
       <motion.button
         ref={ref}
+        className={cn(buttonVariants({ variant, size }), className)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
-        className={cn(
-          "px-6 py-3 rounded-xl font-semibold transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500",
-          variant === "primary"
-            ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg hover:brightness-110"
-            : "bg-white text-black border hover:bg-gray-100",
-          className
-        )}
-        {...props}
+        {...props} // All other motion + native props
       />
     );
   }
 );
 
 Button.displayName = "Button";
+
+export { Button, buttonVariants };
