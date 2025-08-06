@@ -4,12 +4,12 @@ import { useState } from "react";
 import { faqs } from "@/data/faqs";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const FAQ = () => {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggle = (index: number) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section id="faqs" className="px-6 py-20 bg-black text-white">
+    <section id="faq" className="bg-black text-white px-6 py-20">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">FAQs</h2>
         <div className="space-y-4">

@@ -18,8 +18,8 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row gap-4 text-sm">
             <a href="#features" className="hover:text-white">Features</a>
             <a href="#pricing" className="hover:text-white">Pricing</a>
-            <a href="#testimonials" className="hover:text-white">Testimonials</a>
-            <a href="#faq" className="hover:text-white">FAQs</a>
+            <a href="#testimonials" className="...">Testimonials</a>
+            <a href="#faq" className="...">FAQ</a>
             <a href="#contact" className="hover:text-white">Contact</a>
             <a href="#calculator" className="hover:text-white">Calculator</a>
             <a href="#blog" className="hover:text-white">Blog</a>

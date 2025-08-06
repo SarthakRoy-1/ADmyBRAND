@@ -2,6 +2,7 @@ interface PricingCardProps {
   title: string;
   price: string;
   features: string[];
+  featured?: boolean;
   selected?: boolean;
 }
 

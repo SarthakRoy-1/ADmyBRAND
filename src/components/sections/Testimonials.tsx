@@ -1,50 +1,64 @@
-'use client'
+'use client';
 
-import { useState } from "react";
-import { testimonials } from "@/data/testimonials";
-import { motion, AnimatePresence } from "framer-motion";
+// import Image from 'next/image';
 
-export const Testimonials = () => {
-  const [index, setIndex] = useState(0);
-  const next = () => setIndex((index + 1) % testimonials.length);
-  const prev = () => setIndex((index - 1 + testimonials.length) % testimonials.length);
-  const current = testimonials[index];
-
+export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-gradient-to-b from-purple-950 to-black text-white px-6 py-20">
-      <div className="max-w-xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10">What Customers Say</h2>
+    <section id="testimonials" className="bg-black text-white px-6 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white text-center mb-12">
+          What Our Users Say
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Testimonial 1 */}
+          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
+            {/* <Image
+              src="/avatars/avatar1.jpg" 
+              alt="User 1"
+              width={80}
+              height={80}
+              className="rounded-full mx-auto mb-4"
+            /> */}
+            <p className="text-gray-700 dark:text-gray-300">
+              The automation tools saved my team countless hours. It&apos;s now an essential part of our marketing toolkit.
+            </p>
+            <h4 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Sarah K.</h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Marketing Manager</p>
+          </div>
 
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5 }}
-              className="p-8 bg-white/5 border border-white/20 rounded-3xl backdrop-blur-md"
-            >
-              <img
-                src={current.photo}
-                alt={current.name}
-                className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
-              />
-              <p className="text-lg font-medium text-purple-200 mb-2">
-                “{current.quote}”
-              </p>
-              <p className="text-sm text-gray-300">
-                — {current.name}, {current.role}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          {/* Testimonial 2 */}
+          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
+            {/* <Image
+              src="/avatars/avatar2.jpg"
+              alt="User 2"
+              width={80}
+              height={80}
+              className="rounded-full mx-auto mb-4"
+            /> */}
+            <p className="text-gray-700 dark:text-gray-300">
+              The AI insights helped us double our engagement. Super impressed by the real-time reports!
+            </p>
+            <h4 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">David L.</h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Digital Strategist</p>
+          </div>
 
-          <div className="flex justify-center gap-4 mt-6">
-            <button onClick={prev} className="text-white hover:text-purple-300 transition text-2xl">⬅</button>
-            <button onClick={next} className="text-white hover:text-purple-300 transition text-2xl">➡</button>
+          {/* Testimonial 3 (FIXED) */}
+          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
+            {/* <Image
+              src="/avatars/avatar3.jpg"
+              alt="User 3"
+              width={80}
+              height={80}
+              className="rounded-full mx-auto mb-4"
+            /> */}
+            <p className="text-gray-700 dark:text-gray-300">
+              From campaign planning to analytics, everything is in one place. Couldn&apos;t ask for more.
+            </p>
+            <h4 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Anjali M.</h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Product Lead</p>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
