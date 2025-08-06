@@ -1,0 +1,29 @@
+
+---
+
+## **2️⃣ AI Usage Report (`AI_Usage_Report.md`)**
+
+```markdown
+## AI Tools Used
+- **Primary tools**: ChatGPT (GPT-4), GitHub Copilot
+- **Key use cases**:
+  - Generated reusable React + TypeScript components
+  - Debugging import/export and TypeScript type errors
+  - Suggested Tailwind CSS class structures
+  - Guided smooth scroll and quick link implementation
+  - Helped fix build errors for Vercel deployment
+  - SEO metadata setup for Next.js
+
+## Sample Prompts
+1. "Create a reusable pricing card component using React, Tailwind CSS, and TypeScript with a 'featured' flag."
+2. "Fix smooth scrolling not working on FAQ and Testimonials sections in Next.js App Router."
+3. "Write SEO metadata and Open Graph tags for a SaaS landing page."
+
+## AI vs Manual Work Split
+- **AI-generated**: ~40%  
+  - Initial component structures, Tailwind class combinations, and quick bug fixes
+- **Manual coding**: ~60%  
+  - Layout design, UI structuring, content writing, responsive styling
+- **Customization**:
+  - AI-generated code was refined for branding and UX
+  - Animations and interactions were fine-tuned manually
