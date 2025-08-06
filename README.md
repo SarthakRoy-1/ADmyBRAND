@@ -8,7 +8,7 @@ A modern, responsive landing page for the fictional **ADmyBRAND AI Suite**, an A
 
 ## 🚀 Live Demo
 
-🔗 [View Live Site](https://your-vercel-url.vercel.app)
+🔗 [View Live Site](ad-my-brand-pied.vercel.app)
 
 ---
 
